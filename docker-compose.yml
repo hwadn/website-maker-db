@@ -14,9 +14,9 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - D:\projects\mysql-demo\store/config/my.cnf:/etc/mysql/my.cnf
-      - D:\projects\mysql-demo\store/data:/var/lib/mysql
-      - D:\projects\mysql-demo\init_db:/docker-entrypoint-initdb.d
+      - D:\projects\website-maker-db\store/config/my.cnf:/etc/mysql/my.cnf
+      - D:\projects\website-maker-db\store/data:/var/lib/mysql
+      - D:\projects\website-maker-db\init_db:/docker-entrypoint-initdb.d
 
   adminer:
     image: adminer
