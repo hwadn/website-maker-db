@@ -3,7 +3,8 @@ USE website_maker;
 
 CREATE TABLE IF NOT EXISTS wm_users (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(60) BINARY NOT NULL,
+  /* support Chinese name */
+  name VARCHAR(60) BINARY UNIQUE NOT NULL, 
   password VARCHAR(4) NOT NULL,
   role ENUM('user', 'admin'),
 	create_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -24,11 +25,10 @@ CREATE TABLE IF NOT EXISTS wm_pages (
 
 CREATE TABLE IF NOT EXISTS wm_components (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(60) BINARY NOT NULL,
+  name VARCHAR(60) BINARY UNIQUE NOT NULL,
 	version VARCHAR(60) NOT NULL,
   creator_id INT NOT NULL,
 	display_name VARCHAR(60) NOT NULL,
-	css_display VARCHAR(60) NOT NULL,
 	create_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	update_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   CONSTRAINT components_creator_uid FOREIGN KEY(creator_id) REFERENCES wm_users(id)
@@ -38,6 +38,5 @@ CREATE TABLE IF NOT EXISTS wm_components (
 
 INSERT INTO wm_users (name, password, role) VALUES ('chd', '1111', 'admin');
 INSERT INTO wm_pages (title, creator_id) VALUES ('test', 10000000);
-UPDATE wm_pages SET title='测试' WHERE id=1000000;
-INSERT INTO wm_components (name, version, creator_id, display_name, css_display)
-VALUES ('@chd1994/wm-button', '1.0.3', 10000000, '按钮', 'inline-block');
+INSERT INTO wm_components (name, version, creator_id, display_name)
+VALUES ('@chd1994/wm-button', '1.0.3', 10000000, '按钮');
