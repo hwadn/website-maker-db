@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS wm_components (
     ON UPDATE CASCADE
 ) AUTO_INCREMENT=100000 DEFAULT CHARSET=utf8;
 
-INSERT INTO wm_users (name, password, role) VALUES ('chd', '1111', 'admin');
+/* INSERT INTO wm_users (name, password, role) VALUES ('chd', '1111', 'admin');
 INSERT INTO wm_pages (title, creator_id) VALUES ('test', 10000000);
 INSERT INTO wm_components (name, version, creator_id, display_name)
-VALUES ('@chd1994/wm-button', '1.0.3', 10000000, '按钮');
+VALUES ('@chd1994/wm-button', '1.0.3', 10000000, '按钮'); */
